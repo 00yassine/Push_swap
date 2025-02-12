@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	str = NULL;
 	if (ac == 1)
 		return (0);
-	if (ac == 2 && av[1][0] == 0)
+	if ((ac == 2 && av[1][0] == '\0') || av[1][0] == '\0')
 		return (write (2, "Error\n", 6));
 	str = ft_join(av);
 	printf("%s\n",str);

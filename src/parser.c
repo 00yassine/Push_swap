@@ -59,5 +59,8 @@ int	check_char(char *str)
 				return (1);
 		}
 	}
+	i = 0;
+	while (str)
+
 	return (0);
 }
