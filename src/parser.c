@@ -41,33 +41,32 @@ char	**spliter(char *str)
 
 int	check_char(char **str)
 {
-	int	i;
-	int	j;
-
+	int (i), (j);
 	i = 0;
 	while (str[i] != 0)
 	{
 		if (str[i][0] == '-')
 		{
 			j = 1;
-			while(str[i][j] != '\0')
-			{
-				if (!ft_isdigit(str[i][j]))
-					return (write(2, "Error\n", 6));
-				j++;
-			}
+			is_num(str, i, j);
 		}
 		else
 		{
 			j = 0;
-			while(str[i][j] != '\0')
-			{
-				if (!ft_isdigit(str[i][j]))
-					return (write(2, "Error\n", 6));
-				j++;
-			}
+			is_num(str, i, j);
 		}
 		i++;
+	}
+	return (0);
+}
+
+int	is_num(char **str, int i, int j)
+{
+	while (str[i][j] != '\0')
+	{
+		if (!ft_isdigit(str[i][j]))
+			return (write(2, "Error\n", 6));
+		j++;
 	}
 	return (0);
 }

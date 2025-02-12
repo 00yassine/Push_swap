@@ -17,33 +17,24 @@ int	main(int ac, char **av)
 	char	*str;
 	t_stack	*a;
 	t_stack	*b;
+	int		i;
 
+	i = 0;
 	a = NULL;
 	b = NULL;
 	str = NULL;
 	if (ac == 1)
 		return (0);
-	if ((ac == 2 && av[1][0] == '\0') || av[1][0] == '\0')
+	while (av[i] != 0)
+	{
+		if (av[i][0] == '\0')
+			return (write (2, "Error\n", 6));
+		i++;
+	}
+	if ((ac == 2 && av[1][0] == '\0'))
 		return (write (2, "Error\n", 6));
 	str = ft_join(av);
 	av = spliter(str);
 	check_char(av);
-
-	// if (check_char(av) == 0)
-	// {
-	// 	int	i = 0;
-	// 	while(av[i])
-	// 	{
-	// 		printf("%s\n",av[i]);
-	// 		i++;
-	// 	}
-	// }
-	// if (double_checker(str) == 1 || create_stack() == 1)
-	// {
-	// 	freer(&a, &str, &av);
-	// 	return (1);
-	// }
-	// ft_sorter(&a, &b);
-	// freer(&a, &str, &av);
 	return (0);
 }
