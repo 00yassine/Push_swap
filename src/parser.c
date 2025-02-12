@@ -19,12 +19,10 @@ char	*ft_join(char **str)
 
 	i = 1;
 	strj = NULL;
-	if (!str)
-		return (NULL);
-	while (str)
+	while (str[i])
 	{
-		strj = ft_strjoin(strj, str[i]);
 		strj = ft_strjoin(strj, " ");
+		strj = ft_strjoin(strj, str[i]);
 		i++;
 	}
 	return (strj);

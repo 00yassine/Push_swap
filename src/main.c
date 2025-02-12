@@ -26,7 +26,8 @@ int	main(int ac, char **av)
 	if (ac == 2 && av[1][0] == 0)
 		return (write (2, "Error\n", 6));
 	str = ft_join(av);
-	av = ft_split(str, ' ');
+	printf("%s\n",str);
+	av = spliter(str);
 	// if (double_checker(str) == 1 || create_stack() == 1)
 	// {
 	// 	freer(&a, &str, &av);
@@ -34,5 +35,11 @@ int	main(int ac, char **av)
 	// }
 	// ft_sorter(&a, &b);
 	// freer(&a, &str, &av);
+	int	i = 0;
+	while(av[i])
+	{
+		printf("%s\n",av[i]);
+		i++;
+	}
 	return (0);
 }
