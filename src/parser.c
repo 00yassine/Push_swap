@@ -39,28 +39,35 @@ char	**spliter(char *str)
 	return (strj);
 }
 
-int	check_char(char *str)
+int	check_char(char **str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != 0)
 	{
-		if (ft_isalpha(str[i]) == 1)
-			return (1);
+		if (str[i][0] == '-')
+		{
+			j = 1;
+			while(str[i][j] != '\0')
+			{
+				if (!ft_isdigit(str[i][j]))
+					return (write(2, "Error\n", 6));
+				j++;
+			}
+		}
+		else
+		{
+			j = 0;
+			while(str[i][j] != '\0')
+			{
+				if (!ft_isdigit(str[i][j]))
+					return (write(2, "Error\n", 6));
+				j++;
+			}
+		}
 		i++;
 	}
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '-')
-		{
-			if (str[i] >= 48 && str[i] <= 57)
-				return (1);
-		}
-	}
-	i = 0;
-	while (str)
-
 	return (0);
 }

@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 #include "../includes/push_swap.h"
 
-int	ft_isalpha(int c)
+int	ft_isdigit(int c)
 {
-	if ((c >= 'a' && c <= 'z' ) || (c >= 'A' && c <= 'Z'))
+	if (c >= 48 && c <= 57)
 	{
 		return (1);
 	}
