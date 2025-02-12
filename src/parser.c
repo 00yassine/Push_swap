@@ -45,16 +45,18 @@ int	check_char(char **str)
 	i = 0;
 	while (str[i] != 0)
 	{
-		if (str[i][0] == '-')
+		if (str[i][0] == '-' && (str[i][1] >= '0' && str[i][1] <= '9'))
 		{
 			j = 1;
 			is_num(str, i, j);
 		}
-		else
+		else if (str[i][0] != '-')
 		{
 			j = 0;
 			is_num(str, i, j);
 		}
+		else if (str[i][0] == '-')
+			ft_error();
 		i++;
 	}
 	return (0);
@@ -65,8 +67,36 @@ int	is_num(char **str, int i, int j)
 	while (str[i][j] != '\0')
 	{
 		if (!ft_isdigit(str[i][j]))
-			return (write(2, "Error\n", 6));
+			ft_error();
 		j++;
 	}
 	return (0);
+}
+
+void	checkspace(char **str)
+{
+	int (only_spaces), (i), (j);
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		only_spaces = 1;
+		while (str[i][j])
+		{
+			if (str[i][j] != ' ')
+			{
+				only_spaces = 0;
+				break ;
+			}
+			j++;
+		}
+		if (only_spaces)
+		{
+			ft_error();
+			return ;
+		}
+		i++;
+	}
 }

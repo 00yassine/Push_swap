@@ -48,4 +48,6 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
 int		is_num(char **str, int i, int j);
+void	ft_error(void);
+void	checkspace(char **str);
 #endif
