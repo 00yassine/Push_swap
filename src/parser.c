@@ -23,8 +23,8 @@ char	*ft_join(char **str)
 		return (NULL);
 	while (str)
 	{
-		strj = ft_strjoin(strj, " ");
 		strj = ft_strjoin(strj, str[i]);
+		strj = ft_strjoin(strj, " ");
 		i++;
 	}
 	return (strj);

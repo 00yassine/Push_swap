@@ -1,28 +1,22 @@
 NAME = push_swap
-source = src/main.c src/operations.c src/parser.c src/sorting.c src/utils.c
+source = src/main.c src/operations.c src/parser.c src/sorting.c src/utils.c helper/helper.c helper/helper2.c
 objectf = $(source:src/%.c=src/%.o)
 CFLAGS = -Wall -Wextra -Werror
 HEADER = includes/push_swap.h
-LIBFT = libft/libft.a
 
 all:$(NAME)
 
-$(NAME): $(objectf) $(LIBFT)
-	cc $(CFLAGS) $(objectf) $(LIBFT) -o $(NAME)
-
-$(LIBFT):
-	make -C libft
+$(NAME): $(objectf)
+	cc $(CFLAGS) $(objectf) -o $(NAME)
 
 src/%.o : src/%.c
-	cc $(CFLAGS) -c $< -o $@ 
+	cc $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(objectf)
-	make clean -C libft
 
 fclean: clean
 	rm -rf $(NAME)
-	make fclean -C libft
 
 re: fclean all
 

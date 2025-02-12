@@ -21,20 +21,18 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	str = NULL;
-	if (ac < 2)
-		return (1);
-	if (check_empty(ac, av) == 1)
-		return (1);
+	if (ac == 1)
+		return (0);
+	if (ac == 2 && av[1][0] == 0)
+		return (write (2, "Error\n", 6));
 	str = ft_join(av);
-	if (check_char(str) == 1)
-	{
-		write (1, "Error\n", 6);
-		return (0);
-	}
-	av = spliter(str);
-	if (ft_check_error(av) == 1)
-	{
-		write (1, "Error\n", 6);
-		return (0);
-	}
+	av = ft_split(str, ' ');
+	// if (double_checker(str) == 1 || create_stack() == 1)
+	// {
+	// 	freer(&a, &str, &av);
+	// 	return (1);
+	// }
+	// ft_sorter(&a, &b);
+	// freer(&a, &str, &av);
+	return (0);
 }

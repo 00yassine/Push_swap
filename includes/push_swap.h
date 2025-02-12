@@ -12,7 +12,6 @@
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 
@@ -21,6 +20,15 @@ typedef struct stack
 	int				nbr;
 	struct stack	*next;
 }	t_stack;
+typedef struct split
+{
+	int		word_c;
+	char	**result;
+	int		word_i;
+	int		start;
+	int		end;
+	int		i;
+}	t_split;
 int		main(int ac, char **av);
 void	ft_swap(t_stack **stack);
 void	ft_rotate(t_stack **stack);
@@ -32,4 +40,7 @@ char	**spliter(char *str);
 int		ft_check_error(char **str);
 int		check_char(char *str);
 int		check_empty(int ac, char **av);
+char	**ft_split(char const *s, char c);
+int		ft_isalpha(int c);
+char	*ft_strjoin(char const *s1, char const *s2);
 #endif
