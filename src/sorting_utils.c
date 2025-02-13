@@ -21,8 +21,8 @@ void	ft_push_swap(char **str)
 	size = 0;
 	a = NULL;
 	b = NULL;
-	if (check_double(str) == 1)
-		ft_error();
+	check_double(str);
+	max_min(str);
 	size = stack_creator(&a, str);
 	if (size <= 0)
 		ft_error();
@@ -49,28 +49,44 @@ int	stack_creator(t_stack **a, char **str)
 	return (i);
 }
 
-int	check_double(char **str)
+void	check_double(char **str)
 {
 	int (i), (j);
 	i = 0;
 	if (!str[0])
-		return (0);
+		return ;
 	while (str[i])
 	{
 		j = i + 1;
 		while (str[j])
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
-				return (1);
+				ft_error();
 			j++;
 		}
 		i++;
 	}
-	return (0);
+	return ;
 }
 
 void	stack_sorter(t_stack **a, int size)
 {
 	if (size == 2)
 		sort_2(a);
+}
+
+void	max_min(char **str)
+{
+	int		i;
+	long	num;
+
+	i = 0;
+	while (str[i])
+	{
+		num = ft_atol(str[i]);
+		if (num > 2147483647 || num < -2147483648)
+			ft_error();
+		i++;
+	}
+	return ;
 }

@@ -56,6 +56,32 @@ int	ft_atoi(const char *str)
 	return (sign * result);
 }
 
+long	ft_atol(const char *str)
+{
+	int		i;
+	long	result;
+	int		sign;
+
+	sign = 1;
+	result = 0;
+	i = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (sign * result);
+}
+
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*tmp;
