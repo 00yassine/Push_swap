@@ -52,10 +52,15 @@ void	ft_error(void);
 void	checkspace(char **str);
 t_stack	*ft_lstnew(int nbr);
 void	ft_push_swap(char **str);
-int		check_double(char **str);
+void	check_double(char **str);
 int		stack_creator(t_stack **a, char **str);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_atoi(const char *str);
 void	sort_2(t_stack **a);
 void	stack_sorter(t_stack **a, int size);
+void	max_min(char **str);
+long	ft_atol(const char *str);
+int		check_if_sort(t_stack *a);
+int		bigger_num_i(t_stack **a);
+void	sort_3(t_stack **a);
 #endif

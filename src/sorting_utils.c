@@ -73,6 +73,8 @@ void	stack_sorter(t_stack **a, int size)
 {
 	if (size == 2)
 		sort_2(a);
+	if (size == 3)
+		sort_3(a);
 }
 
 void	max_min(char **str)
