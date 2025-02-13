@@ -12,6 +12,32 @@
 
 #include "../includes/push_swap.h"
 
+int	bigger_num_i(t_stack **a)
+{
+	t_stack	*tmp;
+	int		temp;
+	int		i;
+
+	i = 0;
+	tmp = *a;
+	temp = tmp->nbr;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		if (temp < tmp->nbr)
+			temp = tmp->nbr;
+	}
+	tmp = *a;
+	while (tmp)
+	{
+		i++;
+		if (temp == tmp->nbr)
+			break ;
+		tmp = tmp->next;
+	}
+	return (i);
+}
+
 void	sort_2(t_stack **a)
 {
 	if ((*a)->nbr > (*a)->next->nbr)
@@ -46,28 +72,10 @@ void	sort_3(t_stack **a)
 	}
 }
 
-int	bigger_num_i(t_stack **a)
+void	sort_4(t_stack **a)
 {
-	t_stack	*tmp;
-	int		temp;
-	int		i;
+	int	i;
 
-	i = 0;
-	tmp = *a;
-	temp = tmp->nbr;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		if (temp < tmp->nbr)
-			temp = tmp->nbr;
-	}
-	tmp = *a;
-	while (tmp)
-	{
-		i++;
-		if (temp == tmp->nbr)
-			break ;
-		tmp = tmp->next;
-	}
-	return (i);
+	i = bigger_num_i(a);
+	
 }
