@@ -15,13 +15,17 @@
 void	ft_push_swap(char **str)
 {
 	t_stack	*a;
+	t_stack	*b;
 	int		size;
 
 	size = 0;
 	a = NULL;
+	b = NULL;
 	if (check_double(str) == 1)
 		ft_error();
 	size = stack_creator(&a, str);
+	if (size <= 0)
+		ft_error();
 	stack_sorter(&a, size);
 }
 
@@ -34,8 +38,12 @@ int	stack_creator(t_stack **a, char **str)
 	i = 0;
 	while (str[i])
 	{
+		next = malloc(sizeof(t_stack));
+		if (!next)
+			return (-1);
 		next->nbr = ft_atoi(str[i]);
-		ft_lstadd_back(&(*a), next);
+		next->next = NULL;
+		ft_lstadd_back(a, next);
 		i++;
 	}
 	return (i);
@@ -45,7 +53,7 @@ int	check_double(char **str)
 {
 	int (i), (j);
 	i = 0;
-	if (!str)
+	if (!str[0])
 		return (0);
 	while (str[i])
 	{
