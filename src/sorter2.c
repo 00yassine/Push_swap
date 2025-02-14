@@ -33,3 +33,38 @@ void	bubble_sort(int size, int *sort)
 		i++;
 	}
 }
+
+int	*ft_arr_sort(t_stack *a, int size)
+{
+	int		*sort;
+	t_stack	*temp;
+	int		i;
+
+	temp = a;
+	i = 0;
+	sort = malloc(sizeof(int) * size);
+	if (!sort)
+		return (NULL);
+	while (i < size)
+	{
+		sort[i] = temp->nbr;
+		i++;
+		temp = temp->next;
+	}
+	bubble_sort(size, sort);
+	return (sort);
+}
+
+int	calculate_end(int size)
+{
+	if (size <= 16)
+		return (3);
+	else if (size <= 100)
+		return (16);
+	else if (size <= 500)
+		return (35);
+	else
+		return (50);
+}
+
+void	

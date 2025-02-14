@@ -75,25 +75,30 @@ void	sort_bigger_than_5(t_stack **a, t_stack **b)
 	i = 0;
 	size = ft_lstsize(*a);
 	sort = ft_arr_sort(*a, size);
+	almost_sorted_b(a, b, sort, size);
 }
 
-int	*ft_arr_sort(t_stack *a, int size)
+void	almost_sorted_b(t_stack **a, t_stack **b, int *sort, int size)
 {
-	int		*sort;
-	t_stack	*temp;
-	int i;
-
-	temp = a;
-	i = 0;
-	sort = malloc(sizeof(int) * size);
-	if (!sort)
-		return (NULL);
-	while (i < size)
+	int (start), (end);
+	start = 0;
+	end = calculate_end(size);
+	while (size != 0)
 	{
-		sort[i] = temp->nbr;
-		i++;
-		temp = temp->next;
+		if ((*a)->nbr <= s[start])
+		{
+			push_for_start(a, b, &start, &end);
+			size--;
+		}
+		else if ((*a)->nbr <= s[end])
+		{
+			push_for_end(a, b, &start, &end);
+			size--;
+		}
+		else
+		{
+			ft_rotate(a);
+			write (1, "ra\n", 3);
+		}
 	}
-	bubble_sort(size, sort);
-	return (sort);
 }
