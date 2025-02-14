@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykabili- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 10:02:49 by ykabili-          #+#    #+#             */
-/*   Updated: 2025/02/13 10:02:51 by ykabili-         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:19:08 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_if_sort(t_stack *a)
 	return (0);
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int	i;
 
@@ -50,7 +50,7 @@ void	move_big_to_top(t_stack **a, t_stack **b, int i, int size)
 		while (j < i - 1)
 		{
 			ft_rotate(a);
-			write(1, "ra\n", 3)
+			write(1, "ra\n", 3);
 			j++;
 		}
 	}
@@ -65,4 +65,5 @@ void	move_big_to_top(t_stack **a, t_stack **b, int i, int size)
 		}
 	}
 	ft_push(b, a);
+	write (1, "pb\n", 3);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sorter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykabili- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 22:11:19 by ykabili-          #+#    #+#             */
-/*   Updated: 2025/02/12 22:11:23 by ykabili-         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:18:51 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,14 @@ void	sort_3(t_stack **a)
 	}
 }
 
-void	sort_4(t_stack **a)
+void	sort_4(t_stack **a, t_stack **b)
 {
 	int	i;
 
 	i = bigger_num_i(a);
-	
+	move_big_to_top(a, b, i, ft_lstsize(*a));
+	sort_3(a);
+	ft_push(a, b);
+	ft_rotate(a);
+	write(1, "pa\nra\n", 6);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykabili- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 09:42:28 by ykabili-          #+#    #+#             */
-/*   Updated: 2025/02/11 09:42:34 by ykabili-         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:15:51 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,13 @@ int		stack_creator(t_stack **a, char **str);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 int		ft_atoi(const char *str);
 void	sort_2(t_stack **a);
-void	stack_sorter(t_stack **a, int size);
+void	stack_sorter(t_stack **a, t_stack **b, int size);
 void	max_min(char **str);
 long	ft_atol(const char *str);
 int		check_if_sort(t_stack *a);
 int		bigger_num_i(t_stack **a);
 void	sort_3(t_stack **a);
+void	move_big_to_top(t_stack **a, t_stack **b, int i, int size);
+void	sort_4(t_stack **a, t_stack **b);
+int		ft_lstsize(t_stack *lst);
 #endif

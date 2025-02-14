@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ykabili- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 09:45:29 by ykabili-          #+#    #+#             */
-/*   Updated: 2025/02/11 09:45:31 by ykabili-         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:51:01 by yassine          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_push_swap(char **str)
 {
 	t_stack	*a;
-	t_stack	*b;
+	t_stack *b;
 	int		size;
 
 	size = 0;
@@ -26,7 +26,7 @@ void	ft_push_swap(char **str)
 	size = stack_creator(&a, str);
 	if (size <= 0)
 		ft_error();
-	stack_sorter(&a, size);
+	stack_sorter(&a, &b, size);
 }
 
 int	stack_creator(t_stack **a, char **str)
@@ -69,12 +69,14 @@ void	check_double(char **str)
 	return ;
 }
 
-void	stack_sorter(t_stack **a, int size)
+void	stack_sorter(t_stack **a, t_stack **b, int size)
 {
 	if (size == 2)
 		sort_2(a);
 	if (size == 3)
 		sort_3(a);
+	if (size == 4)
+		sort_4(a, b);
 }
 
 void	max_min(char **str)
