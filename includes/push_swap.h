@@ -67,4 +67,5 @@ void	move_big_to_top(t_stack **a, int i, int size);
 void	sort_4(t_stack **a, t_stack **b);
 int		ft_lstsize(t_stack *lst);
 void	sort_5(t_stack **a, t_stack **b);
+void	sort_bigger_than_5(t_stack **a, t_stack **b);
 #endif

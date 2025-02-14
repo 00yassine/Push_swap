@@ -81,8 +81,8 @@ void	stack_sorter(t_stack **a, t_stack **b, int size)
 			sort_4(a, b);
 		else if (size == 5)
 			sort_5(a, b);
-		// else
-		// 	sort_bigger_than_5(a, b);
+		else
+			sort_bigger_than_5(a, b);
 	}
 }
 

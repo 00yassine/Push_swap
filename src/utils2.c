@@ -65,3 +65,51 @@ void	move_big_to_top(t_stack **a, int i, int size)
 		}
 	}
 }
+
+void	sort_bigger_than_5(t_stack **a, t_stack **b)
+{
+	int	sort[];
+	int	size;
+	int	i;
+
+	i = 0;
+	size = ft_lstsize(*a);
+	sort = ft_sort_sort(a, size);
+
+}
+
+int	*ft_sort_sort(t_stack *a, int size)
+{
+	int	*sort;
+	int i j tmp;
+	t_stack	*temp;
+
+	temp =
+	j = 0;
+	i = 0;
+	sort = malloc(sizeof(int) * size);
+	if (so)
+	while (i < size)
+	{
+		sort[i] = a->nbr;
+		i++;
+		a = a->next;
+	}
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (sort[i] > sort[j])
+			{
+				tmp = sort[i];
+				sort[i] = sort[j];
+				sort[j] = tmp;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (sort);
+}
