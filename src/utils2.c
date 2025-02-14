@@ -40,7 +40,7 @@ int	ft_lstsize(t_stack *lst)
 	return (i);
 }
 
-void	move_big_to_top(t_stack **a, t_stack **b, int i, int size)
+void	move_big_to_top(t_stack **a, int i, int size)
 {
 	int	j;
 
@@ -64,6 +64,4 @@ void	move_big_to_top(t_stack **a, t_stack **b, int i, int size)
 			j++;
 		}
 	}
-	ft_push(b, a);
-	write (1, "pb\n", 3);
 }

@@ -15,7 +15,7 @@
 void	ft_push_swap(char **str)
 {
 	t_stack	*a;
-	t_stack *b;
+	t_stack	*b;
 	int		size;
 
 	size = 0;
@@ -77,6 +77,8 @@ void	stack_sorter(t_stack **a, t_stack **b, int size)
 		sort_3(a);
 	if (size == 4)
 		sort_4(a, b);
+	if (size == 5)
+		sort_5(a, b);
 }
 
 void	max_min(char **str)

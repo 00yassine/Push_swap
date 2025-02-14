@@ -63,7 +63,8 @@ long	ft_atol(const char *str);
 int		check_if_sort(t_stack *a);
 int		bigger_num_i(t_stack **a);
 void	sort_3(t_stack **a);
-void	move_big_to_top(t_stack **a, t_stack **b, int i, int size);
+void	move_big_to_top(t_stack **a, int i, int size);
 void	sort_4(t_stack **a, t_stack **b);
 int		ft_lstsize(t_stack *lst);
+void	sort_5(t_stack **a, t_stack **b);
 #endif

@@ -77,8 +77,24 @@ void	sort_4(t_stack **a, t_stack **b)
 	int	i;
 
 	i = bigger_num_i(a);
-	move_big_to_top(a, b, i, ft_lstsize(*a));
+	move_big_to_top(a, i, ft_lstsize(*a));
+	ft_push(b, a);
+	write (1, "pb\n", 3);
 	sort_3(a);
+	ft_push(a, b);
+	ft_rotate(a);
+	write(1, "pa\nra\n", 6);
+}
+
+void	sort_5(t_stack **a, t_stack **b)
+{
+	int	i;
+
+	i = bigger_num_i(a);
+	move_big_to_top(a, i, ft_lstsize(*a));
+	ft_push(b, a);
+	write(1, "pb\n", 3);
+	sort_4(a, b);
 	ft_push(a, b);
 	ft_rotate(a);
 	write(1, "pa\nra\n", 6);
