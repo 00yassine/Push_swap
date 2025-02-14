@@ -71,14 +71,19 @@ void	check_double(char **str)
 
 void	stack_sorter(t_stack **a, t_stack **b, int size)
 {
-	if (size == 2)
-		sort_2(a);
-	if (size == 3)
-		sort_3(a);
-	if (size == 4)
-		sort_4(a, b);
-	if (size == 5)
-		sort_5(a, b);
+	if (check_if_sort(*a) == 1)
+	{
+		if (size == 2)
+			sort_2(a);
+		else if (size == 3)
+			sort_3(a);
+		else if (size == 4)
+			sort_4(a, b);
+		else if (size == 5)
+			sort_5(a, b);
+		// else
+		// 	sort_bigger_than_5(a, b);
+	}
 }
 
 void	max_min(char **str)
