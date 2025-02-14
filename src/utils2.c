@@ -68,48 +68,32 @@ void	move_big_to_top(t_stack **a, int i, int size)
 
 void	sort_bigger_than_5(t_stack **a, t_stack **b)
 {
-	int	sort[];
+	int	*sort;
 	int	size;
 	int	i;
 
 	i = 0;
 	size = ft_lstsize(*a);
-	sort = ft_sort_sort(a, size);
-
+	sort = ft_arr_sort(*a, size);
 }
 
-int	*ft_sort_sort(t_stack *a, int size)
+int	*ft_arr_sort(t_stack *a, int size)
 {
-	int	*sort;
-	int i j tmp;
+	int		*sort;
 	t_stack	*temp;
+	int i;
 
-	temp =
-	j = 0;
+	temp = a;
 	i = 0;
 	sort = malloc(sizeof(int) * size);
-	if (so)
+	if (!sort)
+		return (NULL);
 	while (i < size)
 	{
-		sort[i] = a->nbr;
+		sort[i] = temp->nbr;
 		i++;
-		a = a->next;
+		temp = temp->next;
 	}
-	i = 0;
-	while (i < size)
-	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (sort[i] > sort[j])
-			{
-				tmp = sort[i];
-				sort[i] = sort[j];
-				sort[j] = tmp;
-			}
-			j++;
-		}
-		i++;
-	}
+	bubble_sort(size, sort);
 	return (sort);
 }

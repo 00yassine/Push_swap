@@ -68,4 +68,6 @@ void	sort_4(t_stack **a, t_stack **b);
 int		ft_lstsize(t_stack *lst);
 void	sort_5(t_stack **a, t_stack **b);
 void	sort_bigger_than_5(t_stack **a, t_stack **b);
+void	bubble_sort(int size, int *sort);
+int		*ft_arr_sort(t_stack *a, int size);
 #endif
