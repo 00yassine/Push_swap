@@ -15,6 +15,12 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <fcntl.h>
+# include <stdint.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 
 typedef struct stack
 {
@@ -30,6 +36,12 @@ typedef struct split
 	int		end;
 	int		i;
 }	t_split;
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+char	*read_file(int fd, char *text);
+char	*ft_get_line(char *text);
+char	*ft_get_next(char *text);
+void	*ft_calloc(size_t count, size_t size);
 int		main(int ac, char **av);
 void	ft_swap(t_stack **stack);
 void	ft_rotate(t_stack **stack);
