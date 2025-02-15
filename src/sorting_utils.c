@@ -27,6 +27,7 @@ void	ft_push_swap(char **str)
 	if (size <= 0)
 		ft_error();
 	stack_sorter(&a, &b, size);
+	ft_free_stack(&a);
 }
 
 int	stack_creator(t_stack **a, char **str)

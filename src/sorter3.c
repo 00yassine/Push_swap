@@ -17,7 +17,6 @@ void	sort_a(t_stack **a, t_stack **b)
 	check_and_move_big_to_tp(b);
 	ft_push(a, b);
 	write(1, "pa\n", 3);
-
 }
 
 void	check_and_move_big_to_tp(t_stack **b)
