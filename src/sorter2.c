@@ -67,4 +67,29 @@ int	calculate_end(int size)
 		return (50);
 }
 
-void	
+void	push_for_start(t_stack **a, t_stack **b, int *start, int *end)
+{
+	int	j;
+
+	j = ft_lstsize(*a) + ft_lstsize(*b);
+	ft_push(b, a);
+	ft_rotate(b);
+	write(1, "pb\nrb\n", 6);
+	if (*start < *end)
+		*start += 1;
+	if (*end < j - 1)
+		*end += 1;
+}
+
+void	push_for_end(t_stack **a, t_stack **b, int *start, int *end)
+{
+	int	j;
+
+	j = ft_lstsize(*a) + ft_lstsize(*b);
+	ft_push(b, a);
+	write(1, "pb\n", 3);
+	if (*start < *end)
+		*start += 1;
+	if (*end < j - 1)
+		*end += 1;
+}

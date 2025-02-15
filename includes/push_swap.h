@@ -63,7 +63,6 @@ long	ft_atol(const char *str);
 int		check_if_sort(t_stack *a);
 int		bigger_num_i(t_stack **a);
 void	sort_3(t_stack **a);
-void	move_big_to_top(t_stack **a, int i, int size);
 void	sort_4(t_stack **a, t_stack **b);
 int		ft_lstsize(t_stack *lst);
 void	sort_5(t_stack **a, t_stack **b);
@@ -72,4 +71,10 @@ void	bubble_sort(int size, int *sort);
 int		*ft_arr_sort(t_stack *a, int size);
 void	almost_sorted_b(t_stack **a, t_stack **b, int *sort, int size);
 int		calculate_end(int size);
+void	push_for_start(t_stack **a, t_stack **b, int *start, int *end);
+void	push_for_end(t_stack **a, t_stack **b, int *start, int *end);
+void	sort_a(t_stack **a, t_stack **b);
+void	check_and_move_big_to_tp(t_stack **b);
+void	move_big_to_top_b(t_stack **b, int i, int size);
+void	move_big_to_top_a(t_stack **a, int i, int size);
 #endif
