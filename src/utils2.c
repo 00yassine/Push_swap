@@ -81,6 +81,7 @@ void	sort_bigger_than_5(t_stack **a, t_stack **b)
 		sort_a(a, b);
 		i++;
 	}
+	free(sort);
 }
 
 void	almost_sorted_b(t_stack **a, t_stack **b, int *sort, int size)

@@ -2,7 +2,7 @@ NAME = push_swap
 source = src/main.c src/operations.c src/parser.c src/sorting_utils.c src/utils.c helper/helper.c \
 		helper/helper2.c src/sorter.c src/utils2.c src/sorter2.c src/sorter3.c src/free.c
 objectf = $(source:%.c=%.o)
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 HEADER = includes/push_swap.h
 
 all:$(NAME)

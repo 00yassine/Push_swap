@@ -12,17 +12,41 @@
 
 #include "../includes/push_swap.h"
 
-void	ft_free_char(char **str, char ***av)
+// void	ft_lstclear(t_stack **lst)
+// {
+// 	t_stack	*current;
+// 	t_stack	*next;
+
+// 	if (lst && *lst)
+// 	{
+// 		current = *lst;
+// 		while (current)
+// 		{
+// 			next = current->next;
+// 			ft_del(current);
+// 			current = next;
+// 		}
+// 		*lst = NULL;
+// 	}
+// }
+
+// void ft_del (t_stack *node)
+// {
+// 	free(node);
+// 	node = NULL;
+// }
+
+void	ft_free_char(char **av)
 {
 	int	i;
 
 	i = 0;
-	free (str);
 	while (av[i])
 	{
 		free (av[i]);
 		i++;
 	}
+	free(av);
 }
 
 void	ft_free_stack(t_stack **a)

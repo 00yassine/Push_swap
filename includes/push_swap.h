@@ -48,7 +48,7 @@ char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 size_t	ft_strlen(const char *s);
 int		is_num(char **str, int i, int j);
-void	ft_error(void);
+void	ft_error(char **str);
 void	checkspace(char **str);
 t_stack	*ft_lstnew(int nbr);
 void	ft_push_swap(char **str);
@@ -78,6 +78,7 @@ void	check_and_move_big_to_tp(t_stack **b);
 void	move_big_to_top_b(t_stack **b, int i, int size);
 void	move_big_to_top_a(t_stack **a, int i, int size);
 void	check_empty2(char **av);
-void	ft_free_char(char **str, char ***av);
+void	ft_lstclear(t_stack **lst);
+void	ft_free_char(char **av);
 void	ft_free_stack(t_stack **a);
 #endif

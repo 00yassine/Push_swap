@@ -15,15 +15,17 @@
 char	*ft_join(char **str)
 {
 	char	*strj;
+	char	*strj_helper;
 	int		i;
 
 	i = 1;
-	strj = NULL;
-	while (str[i])
+	strj = ft_strdup(str[i]);
+	while (str[++i])
 	{
-		strj = ft_strjoin(strj, " ");
-		strj = ft_strjoin(strj, str[i]);
-		i++;
+		strj_helper = ft_strjoin(strj, " ");
+		free(strj);
+		strj = ft_strjoin(strj_helper, str[i]);
+		free(strj_helper);
 	}
 	return (strj);
 }
@@ -56,7 +58,7 @@ int	check_char(char **str)
 			is_num(str, i, j);
 		}
 		else if (str[i][0] == '-')
-			ft_error();
+			ft_error(str);
 		i++;
 	}
 	return (0);
@@ -67,7 +69,7 @@ int	is_num(char **str, int i, int j)
 	while (str[i][j] != '\0')
 	{
 		if (!ft_isdigit(str[i][j]))
-			ft_error();
+			ft_error(str);
 		j++;
 	}
 	return (0);
@@ -94,7 +96,7 @@ void	checkspace(char **str)
 		}
 		if (only_spaces)
 		{
-			ft_error();
+			ft_error(str);
 			return ;
 		}
 		i++;

@@ -25,7 +25,7 @@ void	ft_push_swap(char **str)
 	max_min(str);
 	size = stack_creator(&a, str);
 	if (size <= 0)
-		ft_error();
+		ft_error(str);
 	stack_sorter(&a, &b, size);
 	ft_free_stack(&a);
 }
@@ -62,7 +62,7 @@ void	check_double(char **str)
 		while (str[j])
 		{
 			if (ft_atoi(str[i]) == ft_atoi(str[j]))
-				ft_error();
+				ft_error(str);
 			j++;
 		}
 		i++;
@@ -97,7 +97,7 @@ void	max_min(char **str)
 	{
 		num = ft_atol(str[i]);
 		if (num > 2147483647 || num < -2147483648)
-			ft_error();
+			ft_error(str);
 		i++;
 	}
 	return ;
