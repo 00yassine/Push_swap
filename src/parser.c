@@ -47,17 +47,17 @@ int	check_char(char **str)
 	i = 0;
 	while (str[i] != 0)
 	{
-		if (str[i][0] == '-' && (str[i][1] >= '0' && str[i][1] <= '9'))
+		if ((str[i][0] == '-' || str[i][0] == '+') && (str[i][1] >= '0' && str[i][1] <= '9'))
 		{
 			j = 1;
 			is_num(str, i, j);
 		}
-		else if (str[i][0] != '-')
+		else if (str[i][0] != '-' || str[i][0] != '+')
 		{
 			j = 0;
 			is_num(str, i, j);
 		}
-		else if (str[i][0] == '-')
+		else if (str[i][0] == '-' || str[i][0] == '+')
 			ft_error(str);
 		i++;
 	}
