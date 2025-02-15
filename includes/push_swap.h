@@ -77,4 +77,5 @@ void	sort_a(t_stack **a, t_stack **b);
 void	check_and_move_big_to_tp(t_stack **b);
 void	move_big_to_top_b(t_stack **b, int i, int size);
 void	move_big_to_top_a(t_stack **a, int i, int size);
+void	check_empty2(char **av);
 #endif
