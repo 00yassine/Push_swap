@@ -41,13 +41,14 @@ char	**spliter(char *str)
 	return (strj);
 }
 
-int	check_char(char **str)
+void	check_char(char **str)
 {
 	int (i), (j);
 	i = 0;
 	while (str[i] != 0)
 	{
-		if ((str[i][0] == '-' || str[i][0] == '+') && (str[i][1] >= '0' && str[i][1] <= '9'))
+		if ((str[i][0] == '-' || str[i][0] == '+')
+			&& (str[i][1] >= '0' && str[i][1] <= '9'))
 		{
 			j = 1;
 			is_num(str, i, j);
@@ -61,7 +62,7 @@ int	check_char(char **str)
 			ft_error(str);
 		i++;
 	}
-	return (0);
+	return ;
 }
 
 int	is_num(char **str, int i, int j)

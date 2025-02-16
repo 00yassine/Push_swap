@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap_bonus.h"
 
 char	*ft_joinfree(char *buffer, char *buff)
 {
