@@ -73,4 +73,10 @@ void	check_double(char **str);
 void	max_min(char **str);
 int		stack_creator(t_stack **a, char **str);
 void	ft_error(char **str);
+int	ft_atoi(const char *str);
+long	ft_atol(const char *str);
+int		is_num(char **str, int i, int j);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+int		ft_isdigit(int c);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
 #endif
