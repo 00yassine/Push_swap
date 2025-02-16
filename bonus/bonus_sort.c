@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yassine <yassine@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ykabili- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 09:45:29 by ykabili-          #+#    #+#             */
-/*   Ucmddated: 2025/02/13 19:51:01 by yassine          ###   ########.fr       */
+/*   Created: 2025/02/16 03:58:43 by ykabili-          #+#    #+#             */
+/*   Updated: 2025/02/16 03:59:00 by ykabili-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	checker_linux(char **str)
 	size = stack_creator(&a, str);
 	if (size <= 0)
 		ft_error(str);
-	ft_OK_KO(&a, &b);
+	ft_ok_ko(&a, &b);
 	ft_free_stack(&a);
 }
 
@@ -43,7 +43,7 @@ int	check_if_sort(t_stack *a)
 	return (0);
 }
 
-void	ft_OK_KO(t_stack **a, t_stack **b)
+void	ft_ok_ko(t_stack **a, t_stack **b)
 {
 	if (check_command(a, b) == 0)
 	{
@@ -54,23 +54,10 @@ void	ft_OK_KO(t_stack **a, t_stack **b)
 	}
 }
 
-int	check_command(t_stack **a, t_stack **b)
+static int	ft_return(void)
 {
-	char	*cmd;
-
-	cmd = NULL;
-	while (1)
-	{
-		cmd = get_next_line(0);
-		if (cmd == NULL)
-			break ;
-		if (execute_command(a, b, cmd) == 1)
-		{
-			free(cmd);
-			return (1);
-		}
-	}
-	return (0);
+	write(1, "Error\n", 6);
+	return (1);
 }
 
 int	execute_command(t_stack **a, t_stack **b, char *cmd)
@@ -98,9 +85,6 @@ int	execute_command(t_stack **a, t_stack **b, char *cmd)
 	else if (ft_strncmp(cmd, "rrr\n", ft_strlen(cmd)) == 0)
 		ft_rrr(a, b);
 	else
-	{
-		write(1, "Error\n", 6);
-		return (1);
-	}
+		ft_return();
 	return (0);
 }

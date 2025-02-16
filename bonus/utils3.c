@@ -65,3 +65,23 @@ int	ft_isdigit(int c)
 	else
 		return (0);
 }
+
+int	check_command(t_stack **a, t_stack **b)
+{
+	char	*cmd;
+
+	cmd = NULL;
+	while (1)
+	{
+		cmd = get_next_line(0);
+		if (cmd == NULL)
+			break ;
+		if (execute_command(a, b, cmd) == 1)
+		{
+			free(cmd);
+			return (1);
+		}
+		free(cmd);
+	}
+	return (0);
+}

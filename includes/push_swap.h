@@ -46,7 +46,7 @@ void	sort_2(t_stack **stack);
 char	*ft_join(char **str);
 char	**spliter(char *str);
 int		ft_check_error(char **str);
-void		check_char(char **str);
+void	check_char(char **str);
 int		check_empty(int ac, char **av);
 char	**ft_split(char const *s, char c);
 int		ft_isdigit(int c);

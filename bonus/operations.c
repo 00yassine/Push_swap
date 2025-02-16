@@ -102,4 +102,3 @@ void	checkspace(char **str)
 		i++;
 	}
 }
-

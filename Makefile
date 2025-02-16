@@ -27,7 +27,7 @@ clean:
 	rm -rf $(objectf) $(bonus)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) $(BONUSNAME)
 
 re: fclean all
 

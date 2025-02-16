@@ -101,4 +101,3 @@ int	is_num(char **str, int i, int j)
 	}
 	return (0);
 }
-
