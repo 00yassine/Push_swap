@@ -97,8 +97,8 @@ void	checkspace(char **str)
 		}
 		if (only_spaces)
 		{
-			ft_error(str);
-			return ;
+			write(2, "Error\n", 6);
+			exit(1);
 		}
 		i++;
 	}

@@ -5,7 +5,7 @@ source = src/main.c src/operations.c src/parser.c src/sorting_utils.c src/utils.
 		bonus/operations.c bonus/utils1.c bonus/split.c bonus/operations2.c bonus/utils2.c bonus/utils3.c
 objectf = $(source:%.c=%.o)
 bonus = $(bonusfile:%.c=%.o)
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 HEADER = includes/push_swap.h
 BONUSNAME = checker
 

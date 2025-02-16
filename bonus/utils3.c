@@ -66,7 +66,7 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-int	check_command(t_stack **a, t_stack **b)
+int	check_command(t_stack **a, t_stack **b, char **str)
 {
 	char	*cmd;
 
@@ -75,8 +75,8 @@ int	check_command(t_stack **a, t_stack **b)
 	{
 		cmd = get_next_line(0);
 		if (cmd == NULL)
-			break ;
-		if (execute_command(a, b, cmd) == 1)
+			break;
+		if (execute_command(a, b, cmd, str) == 1)
 		{
 			free(cmd);
 			return (1);
@@ -84,4 +84,19 @@ int	check_command(t_stack **a, t_stack **b)
 		free(cmd);
 	}
 	return (0);
+}
+
+int	ft_lstsize(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	if (!lst)
+		return (0);
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

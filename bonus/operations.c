@@ -67,7 +67,7 @@ void	ft_push(t_stack **dest, t_stack **src)
 {
 	t_stack	*top;
 
-	if (!src || !(*src))
+	if (!src || !(*src) || !(*dest))
 		return ;
 	top = *src;
 	*src = top->next;

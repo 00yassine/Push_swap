@@ -26,7 +26,7 @@ void	checker_linux(char **str)
 	size = stack_creator(&a, str);
 	if (size <= 0)
 		ft_error(str);
-	ft_ok_ko(&a, &b);
+	ft_ok_ko(&a, &b, str);
 	ft_free_stack(&a);
 }
 
@@ -43,24 +43,28 @@ int	check_if_sort(t_stack *a)
 	return (0);
 }
 
-void	ft_ok_ko(t_stack **a, t_stack **b)
+void	ft_ok_ko(t_stack **a, t_stack **b, char **str)
 {
-	if (check_command(a, b) == 0)
+	if (check_command(a, b, str) == 0)
 	{
-		if (check_if_sort(*a) == 0 && *b == NULL)
+		if (check_if_sort(*a) == 0 && ft_lstsize(*b) == 0)
 			write(1, "OK\n", 3);
 		else
 			write (1, "KO\n", 3);
 	}
 }
 
-static int	ft_return(void)
+static void	ft_return(char **str, t_stack **a, char *cmd)
 {
-	write(1, "Error\n", 6);
-	return (1);
+	write(2, "Error\n", 6);
+	free(cmd);
+	get_next_line(-2);
+	ft_free_char(str);
+	ft_free_stack(a);
+	exit (1);
 }
 
-int	execute_command(t_stack **a, t_stack **b, char *cmd)
+int	execute_command(t_stack **a, t_stack **b, char *cmd, char **str)
 {
 	if (ft_strncmp(cmd, "sa\n", ft_strlen(cmd)) == 0)
 		ft_swap(a);
@@ -68,9 +72,9 @@ int	execute_command(t_stack **a, t_stack **b, char *cmd)
 		ft_swap(b);
 	else if (ft_strncmp(cmd, "ss\n", ft_strlen(cmd)) == 0)
 		ft_ss(a, b);
-	else if (ft_strncmp(cmd, "pa\n", ft_strlen(cmd)) == 0)
-		ft_push(b, a);
 	else if (ft_strncmp(cmd, "pb\n", ft_strlen(cmd)) == 0)
+		ft_push(b, a);
+	else if (ft_strncmp(cmd, "pa\n", ft_strlen(cmd)) == 0)
 		ft_push(a, b);
 	else if (ft_strncmp(cmd, "ra\n", ft_strlen(cmd)) == 0)
 		ft_rotate(a);
@@ -85,6 +89,6 @@ int	execute_command(t_stack **a, t_stack **b, char *cmd)
 	else if (ft_strncmp(cmd, "rrr\n", ft_strlen(cmd)) == 0)
 		ft_rrr(a, b);
 	else
-		ft_return();
+		ft_return(str, a, cmd);
 	return (0);
 }
