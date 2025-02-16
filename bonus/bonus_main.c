@@ -27,20 +27,57 @@ int	main(int ac, char **av)
 	str1 = spliter(str);
 	free(str);
 	check_char(str1);
-	ft_push_swap(str1);
+	checker_linux(str1);
 	ft_free_char(str1);
 	return (0);
 }
 
-void	check_empty2(char **av)
+char	*ft_join(char **str)
 {
-	int	i;
+	char	*strj;
+	char	*strj_helper;
+	int		i;
+
+	i = 1;
+	strj = ft_strdup(str[i]);
+	while (str[++i])
+	{
+		strj_helper = ft_strjoin(strj, " ");
+		free(strj);
+		strj = ft_strjoin(strj_helper, str[i]);
+		free(strj_helper);
+	}
+	return (strj);
+}
+
+char	**spliter(char *str)
+{
+	char	**strj;
+
+	strj = NULL;
+	if (!str)
+		return (NULL);
+	strj = ft_split(str, ' ');
+	return (strj);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	int		i;
+	char	*s2;
 
 	i = 0;
-	while (av[i] != 0)
+	while (s1[i] != '\0')
+		i++;
+	s2 = (char *)malloc(sizeof(char) * (i + 1));
+	i = 0;
+	if (!s2)
+		return (NULL);
+	while (s1[i])
 	{
-		if (av[i][0] == '\0')
-			ft_error(av);
+		s2[i] = s1[i];
 		i++;
 	}
+	s2[i] = '\0';
+	return (s2);
 }

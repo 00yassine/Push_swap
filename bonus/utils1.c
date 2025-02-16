@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykabili- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 09:45:07 by ykabili-          #+#    #+#             */
-/*   Updated: 2025/02/11 09:45:10 by ykabili-         ###   ########.fr       */
+/*   Created: 2025/02/16 02:58:31 by ykabili-          #+#    #+#             */
+/*   Updated: 2025/02/16 02:58:33 by ykabili-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-char	*ft_join(char **str)
+void	ft_free_char(char **av)
 {
-	char	*strj;
-	char	*strj_helper;
-	int		i;
+	int	i;
 
-	i = 1;
-	strj = ft_strdup(str[i]);
-	while (str[++i])
+	i = 0;
+	while (av[i])
 	{
-		strj_helper = ft_strjoin(strj, " ");
-		free(strj);
-		strj = ft_strjoin(strj_helper, str[i]);
-		free(strj_helper);
+		free (av[i]);
+		i++;
 	}
-	return (strj);
+	free(av);
 }
 
-char	**spliter(char *str)
+void	ft_free_stack(t_stack **a)
 {
-	char	**strj;
+	t_stack	*tmp;
 
-	strj = NULL;
-	if (!str)
-		return (NULL);
-	strj = ft_split(str, ' ');
-	return (strj);
+	while (*a)
+	{
+		tmp = (*a)->next;
+		free (*a);
+		*a = tmp;
+	}
+	*a = NULL;
 }
 
 void	check_char(char **str)
@@ -65,41 +62,38 @@ void	check_char(char **str)
 	return ;
 }
 
-int	is_num(char **str, int i, int j)
+void	check_double(char **str)
 {
-	while (str[i][j] != '\0')
-	{
-		if (!ft_isdigit(str[i][j]))
-			ft_error(str);
-		j++;
-	}
-	return (0);
-}
-
-void	checkspace(char **str)
-{
-	int (only_spaces), (i), (j);
-	if (!str)
-		return ;
+	int (i), (j);
 	i = 0;
+	if (!str[0])
+		return ;
 	while (str[i])
 	{
-		j = 0;
-		only_spaces = 1;
-		while (str[i][j])
+		j = i + 1;
+		while (str[j])
 		{
-			if (str[i][j] != ' ')
-			{
-				only_spaces = 0;
-				break ;
-			}
+			if (ft_atoi(str[i]) == ft_atoi(str[j]))
+				ft_error(str);
 			j++;
-		}
-		if (only_spaces)
-		{
-			ft_error(str);
-			return ;
 		}
 		i++;
 	}
+	return ;
+}
+
+void	max_min(char **str)
+{
+	int		i;
+	long	num;
+
+	i = 0;
+	while (str[i])
+	{
+		num = ft_atol(str[i]);
+		if (num > 2147483647 || num < -2147483648)
+			ft_error(str);
+		i++;
+	}
+	return ;
 }

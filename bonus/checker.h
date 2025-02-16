@@ -19,7 +19,7 @@
 # include <stdint.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 5
 # endif
 
 typedef struct stack
@@ -38,54 +38,39 @@ typedef struct split
 }	t_split;
 
 int		main(int ac, char **av);
+void	checker_linux(char **str);
+int		check_if_sort(t_stack *a);
+char	*ft_strdup(const char *s1);
+char	**ft_split(char const *s, char c);
+void	check_char(char **str);
+void	ft_free_char(char **av);
+void	ft_OK_KO(t_stack **a, t_stack **b);
+int		check_command(t_stack **a, t_stack **b);
+int		execute_command(t_stack **a, t_stack **b, char *cmd);
+int		ft_strlen(const char *s);
+char	*ft_strchr(const char*s, int c);
+char	*ft_strjoin(const char *s1, const char *s2);
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_joinfree(char *buffer, char *buff);
+char	*ft_get_line(char *buffer);
+char	*ft_get_next(char *buffer);
+char	*read_file(int fd, char *buffer);
+char	*get_next_line(int fd);
 void	ft_swap(t_stack **stack);
 void	ft_rotate(t_stack **stack);
-void	ft_push(t_stack **dest, t_stack **src);
 void	ft_rev_rotate(t_stack **stack);
-void	sort_2(t_stack **stack);
+void	ft_push(t_stack **dest, t_stack **src);
+void	checkspace(char **str);
 char	*ft_join(char **str);
 char	**spliter(char *str);
-int		ft_check_error(char **str);
-void		check_char(char **str);
-int		check_empty(int ac, char **av);
-char	**ft_split(char const *s, char c);
-int		ft_isdigit(int c);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strdup(const char *s1);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-size_t	ft_strlen(const char *s);
-int		is_num(char **str, int i, int j);
-void	ft_error(char **str);
-void	checkspace(char **str);
-t_stack	*ft_lstnew(int nbr);
-void	ft_push_swap(char **str);
-void	check_double(char **str);
-int		stack_creator(t_stack **a, char **str);
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
-int		ft_atoi(const char *str);
-void	sort_2(t_stack **a);
-void	stack_sorter(t_stack **a, t_stack **b, int size);
-void	max_min(char **str);
-long	ft_atol(const char *str);
-int		check_if_sort(t_stack *a);
-int		bigger_num_i(t_stack **a);
-void	sort_3(t_stack **a);
-void	sort_4(t_stack **a, t_stack **b);
-int		ft_lstsize(t_stack *lst);
-void	sort_5(t_stack **a, t_stack **b);
-void	sort_bigger_than_5(t_stack **a, t_stack **b);
-void	bubble_sort(int size, int *sort);
-int		*ft_arr_sort(t_stack *a, int size);
-void	almost_sorted_b(t_stack **a, t_stack **b, int *sort, int size);
-int		calculate_end(int size);
-void	push_for_start(t_stack **a, t_stack **b, int *start, int *end);
-void	push_for_end(t_stack **a, t_stack **b, int *start, int *end);
-void	sort_a(t_stack **a, t_stack **b);
-void	check_and_move_big_to_tp(t_stack **b);
-void	move_big_to_top_b(t_stack **b, int i, int size);
-void	move_big_to_top_a(t_stack **a, int i, int size);
-void	check_empty2(char **av);
-void	ft_lstclear(t_stack **lst);
-void	ft_free_char(char **av);
+void	ft_ss(t_stack **a, t_stack **b);
+void	ft_rr(t_stack **a, t_stack **b);
+void	ft_rrr(t_stack **a, t_stack **b);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_free_stack(t_stack **a);
+void	check_double(char **str);
+void	max_min(char **str);
+int		stack_creator(t_stack **a, char **str);
+void	ft_error(char **str);
 #endif

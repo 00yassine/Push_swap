@@ -75,9 +75,31 @@ void	ft_push(t_stack **dest, t_stack **src)
 	*dest = top;
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	checkspace(char **str)
 {
-	ft_swap(a);
-	ft_swap(b);
-	write(1, "rr\n", 3);
+	int (only_spaces), (i), (j);
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		only_spaces = 1;
+		while (str[i][j])
+		{
+			if (str[i][j] != ' ')
+			{
+				only_spaces = 0;
+				break ;
+			}
+			j++;
+		}
+		if (only_spaces)
+		{
+			ft_error(str);
+			return ;
+		}
+		i++;
+	}
 }
+
